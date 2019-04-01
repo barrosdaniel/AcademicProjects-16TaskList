@@ -113,6 +113,9 @@ function clearTasks(e) {
     taskList.removeChild(taskList.firstChild);
   }
 
+  // Clear Tasks From Local Storage
+  clearTasksFromLocalStorage();
+
   e.preventDefault();
 }
 
@@ -147,6 +150,7 @@ function storeTaskInLocalStorage(task) {
   localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 
+// Remove Tasks form Local Storage
 function removeTaskFromLocalStorage(taskItem) {
   let tasks;
   if (localStorage.getItem("tasks") === null) {
@@ -162,4 +166,9 @@ function removeTaskFromLocalStorage(taskItem) {
   });
 
   localStorage.setItem("tasks", JSON.stringify(tasks));
+}
+
+// Remove All Tasks From Local Storage
+function clearTasksFromLocalStorage() {
+  localStorage.clear();
 }
